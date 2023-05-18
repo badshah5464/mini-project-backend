@@ -4,7 +4,6 @@ import axios from 'axios'
 const AddProduct = () => {
 
   const [product, setProduct] = useState({
-    heading: '',
     title: '',
     imgUrl: '',
     pri: '',
@@ -13,7 +12,8 @@ const AddProduct = () => {
 
   const productAdd = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3005/addproduct', product).then((Response) => {
+    axios.post('http://localhost:3005/productData', product).then((Response) => {
+      alert(Response.data.message)
     })
   }
 
@@ -25,10 +25,6 @@ const AddProduct = () => {
   return (
     <section>
       <form onSubmit={productAdd}>
-        <div>
-          <label htmlFor="heading">Heading : </label>
-          <input value={product.heading} onChange={productDetail} type="text" name="heading" />
-        </div>
         <div>
           <label htmlFor="title">Title : </label>
           <input value={product.title} onChange={productDetail} type="text" name="title" />

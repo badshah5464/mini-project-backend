@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import './condectMongoos.js'
+import productsData from './productData.js'
 
 const app = express()
 
@@ -7,8 +9,23 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.post('/addproduct', async (req, res) => {
+app.post('/productData', async (req, res) => {
   console.log(req.body);
+
+  const data = productsData({
+    title: req.body.title,
+    imgUrl: req.body.imgUrl,
+    pri: req.body.pri,
+    dis: req.body.dis
+  })
+
+  const result = await data.save()
+
+  if (result) {
+    res.send({ success: true, message: 'Product Added' })
+  } else {
+    res.send({ success: false, message: 'err' })
+  }
 })
 
 app.get('/', (req, res) => {
