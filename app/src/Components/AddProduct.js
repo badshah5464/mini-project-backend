@@ -1,28 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const AddProduct = () => {
+
+  const productAdd = (e) => {
+    e.preventDefault()
+  }
+
+  const [product, setProduct] = useState({
+    heading: '',
+    title: '',
+    imgUrl: '',
+    pri: '',
+    dis: ''
+  })
+
+  const productDetail = (e) => {
+    const { name, value } = e.target
+    setProduct({ ...product, [name]: value })
+  }
+
   return (
     <section>
-      <form>
+      <form onSubmit={productAdd}>
         <div>
           <label htmlFor="heading">Heading : </label>
-          <input type="text" name="heading" />
+          <input value={product.heading} onChange={productDetail} type="text" name="heading" />
         </div>
         <div>
           <label htmlFor="title">Title : </label>
-          <input type="text" name="title" />
+          <input value={product.title} onChange={productDetail} type="text" name="title" />
         </div>
         <div>
           <label htmlFor="imgUrl">Img Url : </label>
-          <input type="text" name="imgUrl" />
+          <input value={product.imgUrl} onChange={productDetail} type="text" name="imgUrl" />
         </div>
         <div>
           <label htmlFor="price">price : </label>
-          <input type="number" name="pri" />
+          <input value={product.pri} onChange={productDetail} type="number" name="pri" />
         </div>
         <div>
           <label htmlFor="discount">Discount : </label>
-          <input type="number" name="dis" />
+          <input value={product.dis} onChange={productDetail} type="number" name="dis" />
         </div>
         <div>
           <input type="submit" value="Add Product" />
