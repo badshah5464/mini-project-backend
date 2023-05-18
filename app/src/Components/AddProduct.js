@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const AddProduct = () => {
-
-  const productAdd = (e) => {
-    e.preventDefault()
-  }
 
   const [product, setProduct] = useState({
     heading: '',
@@ -13,6 +10,12 @@ const AddProduct = () => {
     pri: '',
     dis: ''
   })
+
+  const productAdd = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:3005/addproduct', product).then((Response) => {
+    })
+  }
 
   const productDetail = (e) => {
     const { name, value } = e.target

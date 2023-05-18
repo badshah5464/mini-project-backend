@@ -7,8 +7,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send("server started")
+app.post('/addproduct', async (req, res) => {
+  console.log(req.body);
 })
 
-app.listen(3005, () => { "BackendStart" })
+app.get('/', (req, res) => {
+  res.send("<h1>Welcome in Backend</h1>")
+})
+
+app.listen(3005, () => { console.log('Server Started'); })
