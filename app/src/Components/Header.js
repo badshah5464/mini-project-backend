@@ -7,7 +7,7 @@ const Header = () => {
       <ul>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='AddProduct'>Add Product's</NavLink></li>
-        <li><NavLink to='ProductData'>Product Data</NavLink></li>
+        <li><NavLink to='ProductList'>Product Data</NavLink></li>
       </ul>
     </nav>
   )

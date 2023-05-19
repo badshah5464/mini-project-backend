@@ -9,6 +9,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send("<h1>Welcome in Backend</h1>")
+})
+
 app.post('/productData', async (req, res) => {
   console.log(req.body);
 
@@ -28,8 +32,15 @@ app.post('/productData', async (req, res) => {
   }
 })
 
-app.get('/', (req, res) => {
-  res.send("<h1>Welcome in Backend</h1>")
+app.get('/getProduct', async (req, res) => {
+  const RenderProductData = await productsData.find({})
+  res.send({ success: true, RenderProductData: RenderProductData })
+})
+
+app.get('/deleteProduct/:id', async (req, res) => {
+  await productsData.findByIdAndDelete(req.params.id).then(() => {
+    res.send({ success: true })
+  })
 })
 
 app.listen(3005, () => { console.log('Server Started'); })

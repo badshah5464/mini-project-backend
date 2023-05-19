@@ -7,6 +7,6 @@ const UserSchema = mongoose.Schema({
   dis: Number
 })
 
-const productsData = mongoose.model('register', UserSchema)
+const productsData = mongoose.model('productData', UserSchema)
 
 export default productsData
