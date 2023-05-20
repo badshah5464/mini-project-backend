@@ -37,10 +37,10 @@ app.get('/getProduct', async (req, res) => {
   res.send({ success: true, RenderProductData: RenderProductData })
 })
 
-app.get('/deleteProduct/:id', async (req, res) => {
+app.delete('/deleteProduct/:id', async (req, res) => {
   await productsData.findByIdAndDelete(req.params.id).then(() => {
     res.send({ success: true })
   })
 })
 
-app.listen(3005, () => { console.log('Server Started'); })
+app.listen(3005, () => console.log('Server Started'))

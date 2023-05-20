@@ -22,9 +22,18 @@ function App() {
     product()
   }, [])
 
+  const RemoveData = async (id) => {
+    await axios.delete(`http://localhost:9000/deleteProduct/${id}`).then((x) => {
+      console.log(x.data.success);
+      if (x.data.success) {
+        product()
+      }
+    })
+  }
+
   return (
     <BrowserRouter>
-      <mainContext.Provider value={{ productRender, product, axios }}>
+      <mainContext.Provider value={{ RemoveData, productRender }}>
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
