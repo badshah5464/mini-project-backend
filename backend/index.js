@@ -14,8 +14,6 @@ app.get('/', (req, res) => {
 })
 
 app.post('/productData', async (req, res) => {
-  console.log(req.body);
-
   const data = productsData({
     title: req.body.title,
     imgUrl: req.body.imgUrl,

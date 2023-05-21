@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { mainContext } from '../App'
 
 const ProductList = () => {
-
   const { RemoveData, productRender } = useContext(mainContext)
 
   const Render = ({ y }) => {
