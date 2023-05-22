@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   const RemoveData = async (id) => {
-    await axios.delete(`http://localhost:9000/deleteProduct/${id}`).then((x) => {
+    await axios.delete(`http://localhost:3005/deleteProduct/${id}`).then((x) => {
       console.log(x.data.success);
       if (x.data.success) {
         product()

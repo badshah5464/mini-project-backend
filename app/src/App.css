@@ -23,3 +23,15 @@ nav>ul>li>a {
   -ms-transition: .2s;
   -o-transition: .2s;
 }
+
+.userProduct {
+  width: fit-content;
+  margin: 0 5em;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.userProduct>div>img {
+  width: 200px;
+  height: 200px;
+}
