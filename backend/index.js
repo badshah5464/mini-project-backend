@@ -2,7 +2,9 @@ import express from 'express'
 import cors from 'cors'
 import './condectMongoos.js'
 import productsData from './productData.js'
-
+//! npm i dotenv
+import dotenv from 'dotenv'
+dotenv.config()
 const app = express()
 
 app.use(express.json())

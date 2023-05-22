@@ -1,3 +1,3 @@
 import mongoose from 'mongoose'
 
-mongoose.connect('mongodb://127.0.0.1:27017/miniproject').then(() => console.log('Connected db'))
+mongoose.connect(process.dotenv.MONGO_URI).then(() => console.log('Connected db'))
