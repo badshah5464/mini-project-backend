@@ -1,12 +1,12 @@
 import express from 'express'
 import cors from 'cors'
-import './condectMongoos.js'
 import productsData from './productData.js'
 //! npm i dotenv
 import dotenv from 'dotenv'
 dotenv.config()
+import ConnectDb from './condectMongoos.js'
 const app = express()
-
+ConnectDb(process.env.MONGO_URI)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
@@ -43,4 +43,4 @@ app.delete('/deleteProduct/:id', async (req, res) => {
   })
 })
 
-app.listen(3005, () => console.log('port 3005 Server Started'))
+app.listen(process.env.PORT, () => console.log('port 3005 Server Started'))

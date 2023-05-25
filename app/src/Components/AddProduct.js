@@ -12,7 +12,7 @@ const AddProduct = () => {
 
   const productAdd = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3005/productData', product).then((Response) => {
+    axios.post('https://codekaro-123.onrender.com/productData', product).then((Response) => {
       alert(Response.data.message)
     })
   }

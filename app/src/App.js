@@ -13,7 +13,7 @@ function App() {
   let [productRender, setProductRender] = useState([])
 
   const product = async () => {
-    await axios.get('http://localhost:3005/getProduct').then((x) => {
+    await axios.get('https://codekaro-123.onrender.com/getProduct').then((x) => {
       setProductRender(x.data.RenderProductData)
     })
   }
@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   const RemoveData = async (id) => {
-    await axios.delete(`http://localhost:3005/deleteProduct/${id}`).then((x) => {
+    await axios.delete(`https://codekaro-123.onrender.com/deleteProduct/${id}`).then((x) => {
       console.log(x.data.success);
       if (x.data.success) {
         product()
